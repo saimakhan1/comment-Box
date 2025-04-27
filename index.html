@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Comment Box</title>
+      
+         <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    </head>
+    <body>
+        
+        
+
+        <div id="comment-show">
+
+        </div>
+
+        <div class="m-10">
+            <div>
+                <textarea class="border-1 border-black p-5" name="" rows="10" cols="100" id="comment-input"></textarea>
+                <br>
+                <button id="post" class="border-1 border-green-500 p-5">Post Comment</button>
+            </div>
+        </div>
+
+        <script>
+    
+
+            document.getElementById('post').addEventListener('click',function(){
+                const commentBox=document.getElementById('comment-input');
+                const commentText=commentBox.value;
+                
+                const p=document.createElement("p");
+                p.style.cssText='background-color:#74b9ff;padding:20px;margin:20px';
+                p.innerText=commentText;
+
+                const ui=document.getElementById('comment-show');
+                console.log(ui);
+                ui.appendChild(p);
+                
+                
+            });
+			
+			function handleKeyPress(event) {
+				if (event.key === 'Enter') {
+					//alert('Enter key was pressed!');
+					const commentBox=document.getElementById('comment-input');
+					const commentText=commentBox.value;
+					
+					const p=document.createElement("p");
+					p.style.cssText='background-color:#ffeaa7;padding:20px;margin:20px';
+					p.innerText=commentText;
+
+					const ui=document.getElementById('comment-show');
+					console.log(ui);
+					ui.appendChild(p);
+				}
+			}
+			document.getElementById('comment-input').addEventListener('keydown', handleKeyPress);
+			
+           
+
+        </script>
+
+        <script src="index.js"></script>
+    </body>
+</html>
